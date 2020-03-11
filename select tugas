@@ -1,0 +1,66 @@
+<?php
+
+//create connection
+
+include 'koneksi.php';
+
+//create database
+
+$sql = "SELECT * FROM buku_tamu";
+
+$result = mysqli_query($conn,$sql);
+
+?>
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+<table border="1" width="300px">
+
+	<thead>
+
+		<td>ID_BT</td>
+
+		<th>Nama</th>
+
+		<th>Email</th>
+
+		<th>Isi</th>
+
+	</thead>
+
+	<tbody>
+
+		<?php
+
+		while ($tampil = mysqli_fetch_array($result)) {
+
+			echo "<tr>";
+
+			echo "<td align=center>".$tampil['id_bt']."</td>";
+
+			echo "<td>".$tampil['nama']."</td>";
+
+			echo "<td>".$tampil['email']."</td>";
+
+			echo "<td>".$tampil['isi']."</td>";
+
+			echo "</tr>";
+
+		}
+
+		?>
+
+	</tbody>
+
+</table>
+
+</body>
+</html>
